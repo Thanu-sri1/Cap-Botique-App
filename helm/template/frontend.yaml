@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thanu-deploy 
+  namespace: thanu-ns
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      thanu: sri 
+  template:
+    metadata:
+      labels:
+        thanu: sri
+    spec:
+    - containers:
+        name: thanu-cont 
+        image: nimeshsv814/cap-boutique:latest
+        ports:
+          - containerPort: 3015  
+        resources:
+          requests: 
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "200m"
+            memory: "512Mi"     
+        env:
+        - name: MONGO_URI
+          valueForm:
+            secretKeyRef:
+              name: thanu-secret 
+              key: MONGO_URI    
+        - name: SESSION_SECRET
+          valueForm:
+            secretKeyRef:
+              name: thanu-secret 
+              key: SESSION_SECRET
+        - name: PORT
+          valueForm:
+            secretKeyRef:
+              name: thanu-secret 
+              key: PORT        
