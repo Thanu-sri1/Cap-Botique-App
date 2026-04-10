@@ -18,31 +18,31 @@ spec:
       labels:
         thanu: sri
     spec:
-    - containers:
-        name: thanu-cont 
-        image: nimeshsv814/cap-boutique:latest
-        ports:
-          - containerPort: 3015  
-        resources:
-          requests: 
-            cpu: "100m"
-            memory: "256Mi"
-          limits:
-            cpu: "200m"
-            memory: "512Mi"     
-        env:
-        - name: MONGO_URI
-          valueForm:
-            secretKeyRef:
-              name: thanu-secret 
-              key: MONGO_URI    
-        - name: SESSION_SECRET
-          valueForm:
-            secretKeyRef:
-              name: thanu-secret 
-              key: SESSION_SECRET
-        - name: PORT
-          valueForm:
-            secretKeyRef:
-              name: thanu-secret 
-              key: PORT        
+      containers:
+        - name: thanu-cont 
+          image: nimeshsv814/cap-boutique:latest
+          ports:
+            - containerPort: 3015  
+          resources:
+            requests: 
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "200m"
+              memory: "512Mi"     
+          env:
+          - name: MONGO_URI
+            valueFrom:
+              secretKeyRef:
+                name: thanu-secret 
+                key: MONGO_URI    
+          - name: SESSION_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: thanu-secret 
+                key: SESSION_SECRET
+          - name: PORT
+            valueFrom:
+              secretKeyRef:
+                name: thanu-secret 
+                key: PORT        
