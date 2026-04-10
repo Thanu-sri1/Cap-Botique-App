@@ -32,17 +32,17 @@ spec:
               memory: "512Mi"     
           env:
           - name: MONGO_URI
-            valueForm:
+            valueFrom:
               secretKeyRef:
                 name: thanu-secret 
                 key: MONGO_URI    
           - name: SESSION_SECRET
-            valueForm:
+            valueFrom:
               secretKeyRef:
                 name: thanu-secret 
                 key: SESSION_SECRET
           - name: PORT
-            valueForm:
+            valueFrom:
               secretKeyRef:
                 name: thanu-secret 
                 key: PORT        
