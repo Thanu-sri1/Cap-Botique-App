@@ -3,10 +3,9 @@ kind: HTTPRoute
 metadata:
   name: thanu-route
   namespace: thanu-ns
- 
-spec:
+ spec:
   parentRefs:
-    - name: newkgateway
+    - name: kgatewaynew
   rules: #path based routing
     - matches:
       - path:
