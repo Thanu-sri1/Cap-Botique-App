@@ -5,7 +5,7 @@ metadata:
   namespace: thanu-ns
 spec:
   selector:
-    thanu: sri
+    cap: boutique 
   ports:
     - port: 3015
       targetPort: 3015 

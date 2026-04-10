@@ -12,11 +12,11 @@ spec:
       maxSurge: 1
   selector:
     matchLabels:
-      thanu: sri 
+      cap: boutique 
   template:
     metadata:
       labels:
-        thanu: sri
+        cap: boutique 
     spec:
       containers:
         - name: thanu-mongo
