@@ -7,6 +7,6 @@ spec:
   selector:
     cap: boutique 
   ports:
-    - port: 3015
-      targetPort: 3015 
+    - port: 27017
+      targetPort: 27017 
   type: ClusterIP  

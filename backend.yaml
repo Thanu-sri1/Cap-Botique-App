@@ -22,7 +22,7 @@ spec:
         - name: thanu-mongo
           image: mongo
           ports:
-            - containerPort: 3015  
+            - containerPort: 27017 
           resources:
             requests: 
               cpu: "100m"
